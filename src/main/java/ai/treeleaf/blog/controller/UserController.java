@@ -27,11 +27,6 @@ public class UserController {
         return this.userService.signIn(request);
     }
 
-    @RequestMapping(value = "/unauthorized",method = RequestMethod.GET)
-    public ResponseEntity<Object> unauthorized(){
-        return new ResponseEntity<>(new ResponseDto("100",false, "Unauthorized"), HttpStatus.UNAUTHORIZED);
-    }
-
     @RequestMapping(value = "/register",method = RequestMethod.POST)
     public ResponseEntity<Object> signUp(@RequestBody @Valid RegisterDto request){
         return this.userService.signUp(request);

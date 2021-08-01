@@ -13,7 +13,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.Collections;
 
-@EnableSwagger2
 @SpringBootApplication
 public class BlogApplication {
 
@@ -22,29 +21,5 @@ public class BlogApplication {
 		SpringApplication.run(BlogApplication.class, args);
 	}
 
-	@Bean
-	public Docket swaggerConfiguration(){
-
-		return new Docket(DocumentationType.SWAGGER_2)
-				.select()
-				.paths(PathSelectors.any())
-				.apis(RequestHandlerSelectors.basePackage("ai.treeleaf"))
-				.build()
-				.apiInfo(apiDetails());
-	}
-
-	private ApiInfo apiDetails(){
-
-		return new ApiInfo(
-				"Treeleaf Blog",
-				"Treeleaf Blog",
-				"1.0",
-				"Terms and conditions applied",
-				new springfox.documentation.service.Contact("SILK Innovation","https://www.silkinnovation.com.np","info@silkinnovation.com.np"),
-				"API License",
-				"https://www.silkinnovation.com.np",
-				Collections.emptyList());
-
-	}
 
 }
